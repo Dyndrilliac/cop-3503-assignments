@@ -1,0 +1,45 @@
+ 
+Assignment #7        NO LATE ASSIGNMENTS ACCEPTED PLEASE.     
+DUE 11 P.M. Friday, April 19, 2013                  
+
+Because the sound is coming from the internet, you will need a try-catch block (this
+site might help you):
+http://ubuntuforums.org/archive/index.php/t-119413.html
+
+Write a program that shows two cars drawn with wheels and a body.
+Use the Graphics class to draw these by hand, with arcs, circles, lines,
+whatevers!
+They should appear initially on the left slide of the screen and they will navigate
+left and right.
+
+You have considerable choice as to the look of your cars, but you must draw
+them by hand.
+
+At the bottom of your frame there should be the following gui's for each car:
+(one set of each for each car--the cars are independent)
+
+1.  A gui that starts a car and begins it movement to the right.
+	IF the car goes off the screen it should start over on the other side.
+2.  A slider that changes the speed of the car.
+3.  A gui that that reverses the movement of the car from left to right or
+	vice versa.
+4.  A gui that stops a car.
+5.  A gui that honks the horn for a short period of time
+6.  A gui that turns on and off the radio.
+7.  A gui that colors the car at least two different colors.
+
+Using panels should be a great help!
+
+Same rules as before. One file. Name the file correctly. I will run from 
+jGrasp.
+
+Try to make it so that resizing the frame is not a problem.
+
+
+$ turnin bigone kmartin.cop3503.a7
+
+Good luck and enjoy!
+
+Best regards,
+
+Ken Martin

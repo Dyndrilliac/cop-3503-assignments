@@ -1,0 +1,86 @@
+Assignment #2        NO LATE ASSIGNMENTS ACCEPTED PLEASE.     
+DUE 11 p.m Friday, February 1, 2013
+
+PLEASE ASK EARLY IF YOU HAVE QUESTIONS.
+
+Within the program  you turnin (at the top) please insert as regular comments
+the pseudocode that you used for the looping portions. There will be a deduct if pseudocode is not submitted.
+
+Generally I will run your program on jGrasp with Windows.
+You can do your developmental work on any  machine, but you must use SSH to ftp your code 
+to Osprey so that you can use turnin (see #5 below). 
+
+The pseudocode and program that you turn in will always be in a single file named unfid.java where unfid
+is YOUR unf id.  So , I would name my file n00009873.java . This implies that the name of the class 
+containing main must be n00009873.  
+
+So , in general, my class containing main will be named n00009873
+and the file containing all my classes will be named n00009873.java
+
+
+
+3.	Construct ONE program solving  4.23 and  4.25 on page 170-171  of the book, 
+	USING jOptionPanes (or another appropriate window) for input and 
+	output screen.  
+	It should accept input from a single screen (AN ARBITRARY NUMBER OF TIMES) with the problem 
+	number and the n or i value (or just the word 
+	stop to end the program). After each line of input it should display the answer for either problem
+        23 or problem 25 (actually problem 25 demands two answers). 
+
+	So input will be like any of the following lines (enter problem number and data in a single screen and 
+	this can be done MANY TIMES until "stop" is entered):
+ 	
+     
+	23  500                   (should give both answers for problem 23 and n =500 by summing in opposite directions)
+	25  10000                   (last denominator is 20001 here)
+        23  100000
+        etc....
+        23 942
+        stop
+
+        DO NOT SIMPLY SUM FOR n=5000 for 4.23 as the author suggests. The user can choose the n value, just as he/she
+        can choose the i value in 4.25. Be sure your program continues running until stop is entered.
+        It will NOT work to check to see if something =="stop" . You will need to use the equals() method of the String 
+        class.        
+ 	
+The split method of the String class is useful or you could use the 
+StringTokenizer class by importing java.util.StringTokenizer.
+You need to do one of the above to split strings like 23 500 into its two tokens and then treat them as Strings and
+then the second string on the line needs to be converted to an int to do the arithmetic.
+
+
+	All of the source code should be in a single file , named unfid.java
+	So my file would be named n00009873.java
+	I need you to name your file unfid.java because
+	turnin (see #5 below) renames your turned in file to unfid, where unfid is YOUR 
+	unf id and I 
+	want an easy way to simply  rename your turned in file back to unfid.java (!!!).
+	I know this is convoluted, but I don't want you to use disks to turn in assignments.
+	I want you to use turnin on Osprey.
+
+4.      Compile the program:
+        (this is how it is done on Osprey)
+
+        $ javac n00009873.java
+	and execute the program-- 
+	$ java n00009873
+
+5.	turnin an electronic version of "unfid.java" using
+	$ turnin unfid.java  kmartin.cop3503.a2
+
+	When I get it , the system renames it unfid (YOUR unfid).
+
+6.	check to see if the size of the file you saved is the same as the size
+        of the file turned in
+
+	$ turnin -c kmartin.cop3503.a2
+        (tells you how many bytes you have turned in--check against how
+        many you have saved) 
+    	$ ls -l
+        (list with long option)
+ 
+Generally, I will compile your file  and then run it.  You should
+do the same using jGrasp on Windows to make sure you have done everything properly.
+
+NEVER turnin ANY BINARY CODE IN THIS CLASS.  NO LATE ASSIGNMENTS ACCEPTED..GET IT DONE 
+EARLY!

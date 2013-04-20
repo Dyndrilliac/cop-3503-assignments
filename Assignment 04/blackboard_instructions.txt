@@ -1,0 +1,245 @@
+Assignment #4        NO LATE ASSIGNMENTS ACCEPTED PLEASE.     
+ DUE 11 PM Thursday, March 14, 2013
+
+
+BE SURE AND PUT YOUR NAME IN A COMMENT AT THE TOP OF YOUR CODE.
+
+
+The program that you turn in will always be in a single file named unfid.java where unfid
+is YOUR unf id.  So , I would name my file n00009873.java . This implies that the name of the class 
+containing main must be n00009873.  
+
+So , in general, my class containing main will be named n00009873 and the file containing all my classes 
+will be named n00009873.java
+
+Design classes that reflect vehicle, car, american car, foreign car, truck, and bicycle with ALL appropriate inheritances. 
+vehicle is the parent.
+
+Your code must override the toString method in each class to display ALL the relevant information from the record.
+Also design an application with a main that tests your classes and processes a file of records (main is specified later).
+
+I will run your compiled code  and run your client program using jGrasp.  
+
+The file of data to be used from the menu system has the following format:
+
+
+vehicle (fixed)
+owner's name (string)
+address (string)
+phone (string)
+email (string)
+
+car (fixed)
+owner's name (string)
+address (string)
+phone (string)
+email (string)
+true or false for convertible (boolean)
+color (string)
+
+american car (fixed)
+owner's name (string)
+address (string)
+phone (string)
+email (string)
+true or false for convertible (boolean)
+color (string)
+true or false for made in Detroit (boolean)
+true or false for union shop (boolean)
+
+foreign car (fixed)
+owner's name (string)
+address (string)
+phone (string)
+email  (string)
+true or false for convertible (boolean)
+color (string)
+country of manufacturer (string)
+import duty (float)
+
+bicycle (fixed)
+owner's name (string)
+address (string)
+phone (string)
+email (string)
+# of speeds (int)
+
+truck (fixed)
+owner's name (string)
+address (string)
+phone (string)
+email (string) 
+# of tons (float)
+cost of truck (float)
+date purchased (format below in exmample)
+
+
+etc.....these records can appear in any order and there can be any number of them.
+IF YOU CAN'T FIGURE OUT HOW TO ALLOW ANY NUMBER OF RECORDS, YOU CAN ASSUME THAT THERE WILL BE NO MORE 
+THAN 20 RECORDS, BUT THERE WILL BE A 5 POINT DEDUCT FOR THAT RESTRICTION.  MY SUGGESTION WOULD BE TO CODE FOR 100 
+RECORDS, AND THEN HAVE A METHOD THAT DOUBLES THE SIZE TO 200, THEN 400, THEN 800, ETC, IF YOU EVER NEED IT.
+PLEASE SPECIFY AT THE TOP OF YOUR DOCUMENTATION WHETHER YOU ALLOW ANY NUMBER OF RECORDS.
+
+Each record will have a line that identifies its type and then on separate lines will be the data.
+Records will have a blank line between them.
+You will need to use an array of Vechicles to store the data.
+
+Here are some examples of data:
+
+ 
+foreign car
+aMarioy
+Mario's house
+(777) 777-7777
+gmario@mario.com
+false
+black
+Italy
+4415.91
+
+truck
+aDougy
+Doug's house
+(123) 456-7890
+hdoug@doug.com
+30
+61234.56
+8/10/2003
+
+vehicle
+aRobby
+Rob's house
+(987) 654-3210
+irob@rob.com
+
+bicycle
+bTommy
+Tom's house
+(246) 810-1214
+jtom@tom.com
+7
+
+truck
+bGeorge
+George's house
+(666) 666-6666
+kgeorge@george.com
+25
+51234.56
+12/4/2004
+
+vehicle
+bTim
+Tim's house
+(111) 111-1111
+tim@tim.com
+
+bicycle
+bJim
+Jim's house
+(555) 555-5555
+Ajim@jim.com
+5
+
+american car
+bJohn
+John's house
+(888) 888-8888
+Bjohn@john.com
+true
+green
+false
+true
+
+car
+cKen
+Ken's house
+(999) 999-9999
+Cken@ken.com
+false
+orange
+
+foreign car
+cMario
+Mario's house
+(777) 777-7777
+Dmario@mario.com
+false
+black
+Italy
+4415.91
+
+truck
+zDoug
+Doug's house
+(123) 456-7890
+Edoug@doug.com
+30
+61234.56
+8/10/2003
+
+vehicle
+eRob
+Rob's house
+(987) 654-3210
+Frob@rob.com
+
+bicycle
+fTom
+Tom's house
+(246) 810-1214
+Gtom@tom.com
+7
+
+american car
+gSam
+Sam's house
+(333) 333-3333
+Hsam@sam.com
+false
+blue
+true
+false
+
+
+
+Write an application with a main that reads a file (from the command line) and fills an array of type vehicle[] with new vehicle 
+(params), new car (params), new american car (params) new foreign car(params) , new truck (params),
+new bicycle (params), etc. depending on the first line that identifies each record.
+
+Then it has a menu system that has the following features (THE MENU ITEMS SHOULD BE ABLE TO BE CHOSEN IN ANY ORDER
+AND CONTINUOUSLY UNTIL THE USER ENTERS THE WORD STOP):
+
+
+	1.  Calls a printAll method that can be passed an array of type vehicle[] and which prints each element of 
+            the array using the appropriate toString() methods. ArrayList is fine if you wish to use it.
+
+	2.  Calls a sort method that can be passed an array of type vehicle[] and which sorts the array by email addresses 
+	    and prints the new sorted array using appropriate toString() methods. Any sort method is fine, but it should
+            sort according to unicode (case sensitive, that is to say that all upper case is before any lower case)!
+
+	3.  Calls a method that prints the number of records.
+
+	4.  Calls a method that prints just the bicycles and trucks (from the sorted array using the appropriate toString() methods).
+
+        5.  Calls a method that prints the vehicles in area code 987.
+
+Be sure to declare variables as private, to extend all the classes appropriately, and to have the right constructors (using super where 
+appropriate), and the getters and setters for ALL the variables. MUST SEND ALL THE OUTPUT FROM PRINTING TO THE CONSOLE, NOT TO A WINDOW.
+MUST TAKE ALL THE OPTIONS FOR THE MENU FROM THE CONSOLE.
+
+
+Check to see if the size of the file you saved is the same as the size
+        of the file turned in
+
+	$ turnin -c kmartin.cop3503.a4
+        (tells you how many bytes you have turned in--check against how
+        many you have saved) 
+    	$ ls -l
+        (list with long option)
+ 
+Generally, I will compile your file  and then run it.  You should
+do the same using jGrasp on Windows to make sure you have done everything properly.
+
+NEVER turnin ANY BINARY CODE IN THIS CLASS.  NO LATE ASSIGNMENTS ACCEPTED..GET IT DONE 
+EARLY!

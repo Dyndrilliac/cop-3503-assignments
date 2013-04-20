@@ -1,0 +1,71 @@
+Assignment #3        NO LATE ASSIGNMENTS ACCEPTED PLEASE.     
+DUE 11 pm Sunday, February 17, 2013                  
+
+This problem is based upon the material in Chapter 8 (problem 1)
+
+Generally I will run your program on jGrasp with Windows.
+You can do your developmental work on any  machine, but you must use SSH to ftp your code 
+to Osprey so that you can use turnin (see #5 below). I will use jGrasp on this problem
+
+The program that you turn in will always be in a single file named unfid.java where unfid
+is YOUR unf id.  So , I would name my file n00009873.java . This implies that the name of the class 
+containing main must be n00009873.  
+
+So , in general, my class containing main will be named n00009873
+and the file containing all my classes will be named n0009873.java
+
+
+
+1.	
+        Write a class named Rectangle that has the following characteristics:
+        a.  two private double data fields named width and height that specify the
+            width and height of the rectangle. Make the default values for these 1
+            for the width and 2 for the height.
+        b.  A no-arg constructor that creates a default rectangle.
+        c.  A two-arg constructor that creates a rectangle with any specified width
+            and height.
+        d.  Methods named getWidth() and getHeight() that return the width and height of a rectangle.
+        e.  Methods named setWidth() and setHeight() that set the width and height of a rectangle.
+        f.  A method named toString() that returns a String such as " the width of this
+            rectangle is .... and the height is ..."  (the ... should be correct)
+        g.  A method named getArea() that returns the area of a rectangle.
+        h.  A method named getPerimeter() that returns the perimeter of a rectangle.
+        i.  A method named isitSquare() that returns true or false based upon whether the
+            rectangle is a square.
+
+Each of your methods should be public.
+Your code must satisfy a-h even though not all will be tested.
+I will check your code carefully to be sure that a-h are written correctly and to specifications.
+
+ 2.    Write a public class named your n number (lowercase n)  that permits the user to enter a width and a length from a single 
+       dialog box and output should go to a single dialog box.  The output  should be:
+       
+       the value of toString() is...................
+       the area is .......
+       the perimeter is....
+       the rectange is [or is not] a square. 
+       
+       User input should be permitted until the user enters stop.
+
+Both classes should be in the same file.
+
+ I will run your compile and run your test program RectangleApp  using jGrasp. 
+
+	All of the source code should be in a single file , named unfid.java
+	So my file would be named n00009873.java
+
+3.	turnin an electronic version of "unfid.java" using
+	$ turnin unfid.java  kmartin.cop3503.a3
+
+
+4.	check to see if the size of the file you saved is the same as the size
+        of the file turned in
+
+	$ turnin -c kmartin.cop3503.a3
+        (tells you how many bytes you have turned in--check against how
+        many you have saved) 
+    	$ ls -l
+        (list with long option)
+ 
+NEVER turnin ANY BINARY CODE IN THIS CLASS.  NO LATE ASSIGNMENTS ACCEPTED..GET IT DONE 
+EARLY!

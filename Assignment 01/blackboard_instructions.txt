@@ -1,0 +1,66 @@
+Assignment #1        NO LATE ASSIGNMENTS ACCEPTED PLEASE.     
+DUE 11 pm, Thursday, January 17,  2013                  
+
+This program will be written in Java.
+Generally I will run your Java programs with jGrasp with Windows.
+You can do your developmental work on any machine, but you must use SSH to ftp your code 
+to Osprey so that you can use turnin (see #5 below).  I will receive your work on Osprey and then
+ftp your code to Windows to use jGrasp to compile your code and execute your program.
+So ALWAYS be sure your code runs on jGrasp (Windows version). Be careful naming your file.
+It MUST be youruserid.java (and that MUST be a with a lower case n--Java IS case sensitive). 
+
+The program that you turn in will always be in a single file named unfid.java where unfid
+is YOUR unf id.  So , I would name my file n00009873.java . This implies that the name of the class 
+containing main must be n00009873.  
+
+So , in general, my class containing main will be named n00009873
+and the file containing all my classes will be named n00009873.java
+This holds for all assignments this term. KEEP THESE INSTRUCTIONS HANDY.
+
+
+1.	log on to osprey.
+2.	change your password (if you like!)
+        $ passwd 
+
+3.	Construct program 2.27 (not 2.25) on page 80 of the book.
+
+Pay particular attention to the input and output as shown in the green box
+so that, for example, 9% is entered as .09 and that the output is as specified for
+arbitrary input. You do not have to do error checking for bad input.
+
+	All of the source code should be in a single file , named unfid.java
+	So my file would be named n00009873.java
+	I need you to name your file youruserid.java because
+	turnin (see #5 below) renames your turned in file to unfid, where unfid is YOUR 
+	unf id and I 
+	want an easy way to simply  rename your turned in file back to youruserid.java (!!!).
+	I know this is convoluted, but I don't want you to use disks to turn in assignments.
+	I want you to use turnin on Osprey.
+
+4.      Compile the program:
+        (this is how it is done on Osprey, but this one won't compile on Osprey because of its visual aspects)
+
+        $ javac n00009873.java
+	and execute the program-- 
+	$ java n00009873
+
+
+5.	turnin an electronic version of "unfid.java" using
+	$ turnin unfid.java  kmartin.cop3503.a1
+ (that is a-one not a-ell)
+	When I get it , the system renames it unfid (YOUR unfid).
+
+6.	check to see if the size of the file you saved is the same as the size
+        of the file turned in
+
+	$ turnin -c kmartin.cop3503.a1  (this is a-one, not a-ell)
+        (tells you how many bytes you have turned in--check against how
+        many you have saved) 
+    	$ ls -l
+        (list with long option)
+ 
+Generally, I will compile your file  and then run it.  You should
+do the same  using jGrasp on Windows to make sure you have done everything properly.
+
+NEVER turnin ANY BINARY CODE IN THIS CLASS.  NO LATE ASSIGNMENTS ACCEPTED..GET IT DONE 
+EARLY!
