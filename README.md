@@ -1,7 +1,10 @@
 *******************************************
 Title:     COP 3503 Assignments
+
 Author:    [Matthew Boyette](mailto:Dyndrilliac@gmail.com)
+
 Professor: Dr. Kenneth Martin
+
 Term:      Spring 2013
 *******************************************
 
