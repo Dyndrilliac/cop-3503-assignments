@@ -1,0 +1,19 @@
+Assignment #6        NO LATE ASSIGNMENTS ACCEPTED PLEASE.     
+DUE 11 p.m. Thursday, March 28,  2013              
+
+Write a single program that produces Figure 13.29 (a)  and
+Figure 13.29  (c)  and Figure 13.32 (b).  All three should be visible at
+the same time in a single window. In addition, the clock should have your name inside it, displayed horizontally 
+between the 9 and the 3.  Note that the time displayed is based upon random numbers and should vary with each run. 
+ A single program should only produce a single display of all three figures.
+
+Same rules as before. One file. Name the file correctly. I will run from 
+jGrasp. 
+
+$ turnin bigone kmartin.cop3503.a6
+
+Good luck and enjoy!
+
+Best regards,
+
+Ken Martin
