@@ -1,16 +1,23 @@
 /*
+	Title:	COP 3503 - Assignment 04
 	Author: Matthew Boyette
 	Date:   3/10/2013
 	
 	My program allows any number of vehicle records to be processed.
 */
 
-import java.io.*;
-import java.text.*;
-import java.util.*;
-import javax.swing.*;
+package Assignment04;
 
-public class n00868808
+import api.util.Support;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Scanner;
+
+public class A4
 {
 	public static class Vehicle
 	{
@@ -19,33 +26,33 @@ public class n00868808
 		private String phone      = "";
 		private String email      = "";
 		
-		public static class VehicleEmailAscendingComparator implements Comparator<Vehicle>
+		public final static class VehicleEmailAscendingComparator implements Comparator<Vehicle>
 		{
-		    public int compare(Vehicle vehicle1, Vehicle vehicle2)
+		    public final int compare(final Vehicle vehicle1, final Vehicle vehicle2)
 		    {
 		    	return vehicle1.getEmail().compareTo(vehicle2.getEmail());
 		    }
 		}
 		
-		public static class VehicleEmailDescendingComparator implements Comparator<Vehicle>
+		public final static class VehicleEmailDescendingComparator implements Comparator<Vehicle>
 		{
-		    public int compare(Vehicle vehicle1, Vehicle vehicle2)
+		    public final int compare(final Vehicle vehicle1, final Vehicle vehicle2)
 		    {
 		    	return vehicle2.getEmail().compareTo(vehicle1.getEmail());
 		    }
 		}
 		
-		public static class VehicleEmailAscendingIgnoreCaseComparator implements Comparator<Vehicle>
+		public final static class VehicleEmailAscendingIgnoreCaseComparator implements Comparator<Vehicle>
 		{
-		    public int compare(Vehicle vehicle1, Vehicle vehicle2)
+		    public final int compare(final Vehicle vehicle1, final Vehicle vehicle2)
 		    {
 		    	return vehicle1.getEmail().compareToIgnoreCase(vehicle2.getEmail());
 		    }
 		}
 		
-		public static class VehicleEmailDescendingIgnoreCaseComparator implements Comparator<Vehicle>
+		public final static class VehicleEmailDescendingIgnoreCaseComparator implements Comparator<Vehicle>
 		{
-		    public int compare(Vehicle vehicle1, Vehicle vehicle2)
+		    public final int compare(final Vehicle vehicle1, final Vehicle vehicle2)
 		    {
 		    	return vehicle2.getEmail().compareToIgnoreCase(vehicle1.getEmail());
 		    }
@@ -53,7 +60,7 @@ public class n00868808
 		
 		public Vehicle() {}
 		
-		public Vehicle(String ownersName, String address, String phone, String email)
+		public Vehicle(final String ownersName, final String address, final String phone, final String email)
 		{
 			this.setOwnersName(ownersName);
 			this.setAddress(address);
@@ -61,12 +68,13 @@ public class n00868808
 			this.setEmail(email);
 		}
 		
-		public Vehicle(Vehicle newVehicle)
+		public Vehicle(final Vehicle newVehicle)
 		{
 			this.setVehicle(newVehicle);
 		}
 		
-		public boolean equals(Object obj)
+		@Override
+		public boolean equals(final Object obj)
 		{
 			if (obj == null) // If 'obj' is null, it cannot be equal to 'this' so return false.
 			{
@@ -104,26 +112,27 @@ public class n00868808
 			return false;
 		}
 		
-		public String getAddress()
+		public final String getAddress()
 		{
 			return this.address;
 		}
 		
-		public String getEmail()
+		public final String getEmail()
 		{
 			return this.email;
 		}
 		
-		public String getOwnersName()
+		public final String getOwnersName()
 		{
 			return this.ownersName;
 		}
 		
-		public String getPhone()
+		public final String getPhone()
 		{
 			return this.phone;
 		}
 		
+		@Override
 		public int hashCode()
 		{
 			/*
@@ -134,84 +143,27 @@ public class n00868808
 			return (this.getOwnersName().hashCode() ^ this.getAddress().hashCode() ^ this.getPhone().hashCode() ^ this.getEmail().hashCode());
 		}
 		
-		// This method takes a string and determines if it can be safely parsed as a boolean.
-		// Return value of true indicates that the string is safe to parse, and false means that the string is not safe to parse.
-		public static boolean isStringParsedAsBoolean(String s)
-		{
-			try
-			{
-				// parseBoolean throws an exception if the string can't be parsed.
-				Boolean.parseBoolean(s);
-			}
-			catch (Exception exception)
-			{
-				// If we catch an exception, then we return false.
-				return false;
-			}
-
-			// Base case; return true if the string was parsed without an exception being thrown.
-			return true;
-		}
-		
-		// This method takes a string and determines if it can be safely parsed as a float.
-		// Return value of true indicates that the string is safe to parse, and false means that the string is not safe to parse.
-		public static boolean isStringParsedAsFloat(String s)
-		{
-			try
-			{
-				// parseFloat throws an exception if the string can't be parsed.
-				Float.parseFloat(s);
-			}
-			catch (Exception exception)
-			{
-				// If we catch an exception, then we return false.
-				return false;
-			}
-
-			// Base case; return true if the string was parsed without an exception being thrown.
-			return true;
-		}
-		
-		// This method takes a string and determines if it can be safely parsed as an integer.
-		// Return value of true indicates that the string is safe to parse, and false means that the string is not safe to parse.
-		public static boolean isStringParsedAsInteger(String s)
-		{
-			try
-			{
-				// parseInt throws an exception if the string can't be parsed.
-				Integer.parseInt(s);
-			}
-			catch (Exception exception)
-			{
-				// If we catch an exception, then we return false.
-				return false;
-			}
-
-			// Base case; return true if the string was parsed without an exception being thrown.
-			return true;
-		}
-		
-		public void setAddress(String address)
+		protected final void setAddress(final String address)
 		{
 			this.address = address;
 		}
 		
-		public void setEmail(String email)
+		protected final void setEmail(final String email)
 		{
 			this.email = email;
 		}
 		
-		public void setOwnersName(String ownersName)
+		protected final void setOwnersName(final String ownersName)
 		{
 			this.ownersName = ownersName;
 		}
 		
-		public void setPhone(String phone)
+		protected final void setPhone(final String phone)
 		{
 			this.phone = phone;
 		}
 		
-		public void setVehicle(Vehicle newVehicle)
+		protected final void setVehicle(final Vehicle newVehicle)
 		{
 			this.setAddress(newVehicle.getAddress());
 			this.setEmail(newVehicle.getEmail());
@@ -219,6 +171,7 @@ public class n00868808
 			this.setPhone(newVehicle.getPhone());
 		}
 		
+		@Override
 		public String toString()
 		{
 			return ("Record type: " + this.getClass().getSimpleName() + 
@@ -235,23 +188,24 @@ public class n00868808
 		
 		public Bicycle() {}
 		
-		public Bicycle(String ownersName, String address, String phone, String email, int numberOfSpeeds)
+		public Bicycle(final String ownersName, final String address, final String phone, final String email, final int numberOfSpeeds)
 		{
 			super(ownersName, address, phone, email);
 			this.setNumberOfSpeeds(numberOfSpeeds);
 		}
 		
-		public Bicycle(Bicycle newBicycle)
+		public Bicycle(final Bicycle newBicycle)
 		{
 			super(newBicycle);
 			this.setNumberOfSpeeds(newBicycle.getNumberOfSpeeds());
 		}
 
-		public Integer getNumberOfSpeeds()
+		public final Integer getNumberOfSpeeds()
 		{
 			return this.numberOfSpeeds;
 		}
 		
+		@Override
 		public int hashCode()
 		{
 			/*
@@ -262,17 +216,18 @@ public class n00868808
 			return (super.hashCode() ^ this.getNumberOfSpeeds().hashCode());
 		}
 		
-		public void setBicycle(Bicycle newBicycle)
+		protected final void setBicycle(final Bicycle newBicycle)
 		{
 			this.setVehicle(newBicycle);
 			this.setNumberOfSpeeds(numberOfSpeeds);
 		}
 
-		public void setNumberOfSpeeds(int numberOfSpeeds)
+		protected final void setNumberOfSpeeds(final int numberOfSpeeds)
 		{
 			this.numberOfSpeeds = numberOfSpeeds;
 		}
 		
+		@Override
 		public String toString()
 		{
 			return (super.toString() + 
@@ -287,25 +242,27 @@ public class n00868808
 		
 		public Car() {}
 		
-		public Car(String ownersName, String address, String phone, String email, boolean isConvertible, String color)
+		public Car(final String ownersName, final String address, final String phone, final String email, final boolean isConvertible,
+			final String color)
 		{
 			super(ownersName, address, phone, email);
 			this.setConvertible(isConvertible);
 			this.setColor(color);
 		}
 		
-		public Car(Car newCar)
+		public Car(final Car newCar)
 		{
 			super(newCar);
 			this.setConvertible(newCar.isConvertible());
 			this.setColor(newCar.getColor());
 		}
 		
-		public String getColor()
+		public final String getColor()
 		{
 			return this.color;
 		}
 		
+		@Override
 		public int hashCode()
 		{
 			/*
@@ -316,28 +273,29 @@ public class n00868808
 			return (super.hashCode() ^ this.getColor().hashCode() ^ this.isConvertible().hashCode());
 		}
 		
-		public Boolean isConvertible()
+		public final Boolean isConvertible()
 		{
 			return this.isConvertible;
 		}
 		
-		public void setCar(Car newCar)
+		protected void setCar(final Car newCar)
 		{
 			this.setVehicle(newCar);
 			this.setConvertible(newCar.isConvertible());
 			this.setColor(newCar.getColor());
 		}
 		
-		public void setColor(String color)
+		protected final void setColor(final String color)
 		{
 			this.color = color;
 		}
 		
-		public void setConvertible(boolean isConvertible)
+		protected final void setConvertible(final boolean isConvertible)
 		{
 			this.isConvertible = isConvertible;
 		}
 		
+		@Override
 		public String toString()
 		{
 			return (super.toString() + 
@@ -348,92 +306,7 @@ public class n00868808
 	
 	public static class Truck extends Vehicle
 	{
-		private float  numberOfTons = 0.0f;
-		private float  costOfTruck  = 0.0f;
-		private String datePurchased = "1/1/1970";
-		
-		public Truck() {}
-		
-		public Truck(String ownersName, String address, String phone, String email, float numberOfTons, float costOfTruck, String datePurchased)
-		{
-			super(ownersName, address, phone, email);
-			this.setNumberOfTons(numberOfTons);
-			this.setCostOfTruck(costOfTruck);
-			this.setDatePurchased(datePurchased);
-		}
-		
-		public Truck(Truck newTruck)
-		{
-			super(newTruck);
-			this.setNumberOfTons(newTruck.getNumberOfTons());
-			this.setCostOfTruck(newTruck.getCostOfTruck());
-			this.setDatePurchased(newTruck.getDatePurchased());
-		}
-		
-		public Float getCostOfTruck()
-		{
-			return costOfTruck;
-		}
-		
-		public String getDatePurchased() 
-		{
-			return datePurchased;
-		}
-		
-		public Float getNumberOfTons()
-		{
-			return numberOfTons;
-		}
-		
-		public int hashCode()
-		{
-			/*
-				The hashCode method is a way to reduce all of an object's properties down to a single integer to assist in equality comparisons.
-				Each property's individual hash code is joined by the XOR operator, which will generate a new hash code that will change even if
-				only a single bit changes in any of its component parts.
-			*/
-			return (super.hashCode() ^ this.getNumberOfTons().hashCode() ^ this.getCostOfTruck().hashCode() ^ this.getDatePurchased().hashCode());
-		}
-		
-		public void setCostOfTruck(float costOfTruck)
-		{
-			this.costOfTruck = costOfTruck;
-		}
-		
-		public void setDatePurchased(String datePurchased)
-		{
-			if (validateDateString(datePurchased))
-			{
-				this.datePurchased = datePurchased;
-			}
-			else
-			{
-				handleException(new Exception("The given date is invalid. The object has not been changed."));
-			}
-		}
-		
-		public void setNumberOfTons(float numberOfTons)
-		{
-			this.numberOfTons = numberOfTons;
-		}
-		
-		public void setTruck(Truck newTruck)
-		{
-			this.setVehicle(newTruck);
-			this.setNumberOfTons(newTruck.getNumberOfTons());
-			this.setCostOfTruck(newTruck.getCostOfTruck());
-			this.setDatePurchased(newTruck.getDatePurchased());
-		}
-		
-		public String toString()
-		{
-			return (super.toString() + 
-					"Number of tons: " + this.getNumberOfTons() + 
-					"\nCost of truck: " + this.getCostOfTruck() + 
-					"\nDate purchased: " + this.getDatePurchased() + "\n");
-		}
-		
-		public static boolean validateDateString(String date)
+		protected static boolean validateDateString(final String date)
 		{
 			if ((date == null) || date.isEmpty())
 			{
@@ -453,13 +326,13 @@ public class n00868808
 				
 				if (intArray[0] < 1)
 				{
-					handleException(new Exception("Month value must exceed the lower bound of 1."));
+					Support.displayException(null, new Exception("Month value must exceed the lower bound of 1."), false);
 					return false;
 				}
 				
 				if (intArray[0] > 12)
 				{
-					handleException(new Exception("Month value must not exceed the upper bound of 12."));
+					Support.displayException(null, new Exception("Month value must not exceed the upper bound of 12."), false);
 					return false;
 				}
 				
@@ -489,19 +362,19 @@ public class n00868808
 				
 				if (intArray[1] < dayLowerBound)
 				{
-					handleException(new Exception("Day value must exceed the lower bound of " + dayLowerBound + "."));
+					Support.displayException(null, new Exception("Day value must exceed the lower bound of " + dayLowerBound + "."), false);
 					return false;
 				}
 				
 				if (intArray[1] > dayUpperBound)
 				{
-					handleException(new Exception("Day value must not exceed the upper bound of " + dayUpperBound + "."));
+					Support.displayException(null, new Exception("Day value must not exceed the upper bound of " + dayUpperBound + "."), false);
 					return false;
 				}
 				
 				if (intArray[2] < 0)
 				{
-					handleException(new Exception("Year value must be greater than or equal to 0."));
+					Support.displayException(null, new Exception("Year value must be greater than or equal to 0."), false);
 					return false;
 				}
 				
@@ -509,6 +382,94 @@ public class n00868808
 			}
 			
 			return false;
+		}
+		
+		private float  numberOfTons = 0.0f;
+		private float  costOfTruck  = 0.0f;
+		private String datePurchased = "1/1/1970";
+		
+		public Truck() {}
+		
+		public Truck(final String ownersName, final String address, final String phone, final String email, final float numberOfTons,
+			final float costOfTruck, final String datePurchased)
+		{
+			super(ownersName, address, phone, email);
+			this.setNumberOfTons(numberOfTons);
+			this.setCostOfTruck(costOfTruck);
+			this.setDatePurchased(datePurchased);
+		}
+		
+		public Truck(final Truck newTruck)
+		{
+			super(newTruck);
+			this.setNumberOfTons(newTruck.getNumberOfTons());
+			this.setCostOfTruck(newTruck.getCostOfTruck());
+			this.setDatePurchased(newTruck.getDatePurchased());
+		}
+		
+		public final Float getCostOfTruck()
+		{
+			return costOfTruck;
+		}
+		
+		public final String getDatePurchased() 
+		{
+			return datePurchased;
+		}
+		
+		public final Float getNumberOfTons()
+		{
+			return numberOfTons;
+		}
+		
+		@Override
+		public int hashCode()
+		{
+			/*
+				The hashCode method is a way to reduce all of an object's properties down to a single integer to assist in equality comparisons.
+				Each property's individual hash code is joined by the XOR operator, which will generate a new hash code that will change even if
+				only a single bit changes in any of its component parts.
+			*/
+			return (super.hashCode() ^ this.getNumberOfTons().hashCode() ^ this.getCostOfTruck().hashCode() ^ this.getDatePurchased().hashCode());
+		}
+		
+		protected final void setCostOfTruck(final float costOfTruck)
+		{
+			this.costOfTruck = costOfTruck;
+		}
+		
+		protected final void setDatePurchased(final String datePurchased)
+		{
+			if (Truck.validateDateString(datePurchased))
+			{
+				this.datePurchased = datePurchased;
+			}
+			else
+			{
+				Support.displayException(null, new Exception("The given date is invalid. The object has not been changed."), false);
+			}
+		}
+		
+		protected final void setNumberOfTons(final float numberOfTons)
+		{
+			this.numberOfTons = numberOfTons;
+		}
+		
+		protected final void setTruck(final Truck newTruck)
+		{
+			this.setVehicle(newTruck);
+			this.setNumberOfTons(newTruck.getNumberOfTons());
+			this.setCostOfTruck(newTruck.getCostOfTruck());
+			this.setDatePurchased(newTruck.getDatePurchased());
+		}
+		
+		@Override
+		public String toString()
+		{
+			return (super.toString() + 
+					"Number of tons: " + this.getNumberOfTons() + 
+					"\nCost of truck: " + this.getCostOfTruck() + 
+					"\nDate purchased: " + this.getDatePurchased() + "\n");
 		}
 	}
 	
@@ -519,20 +480,22 @@ public class n00868808
 		
 		public AmericanCar() {}
 		
-		public AmericanCar(String ownersName, String address, String phone, String email, boolean isConvertible, String color, boolean isMadeInDetroit, boolean isUnionShop)
+		public AmericanCar(final String ownersName, final String address, final String phone, final String email, final boolean isConvertible,
+			final String color, final boolean isMadeInDetroit, final boolean isUnionShop)
 		{
 			super(ownersName, address, phone, email, isConvertible, color);
 			this.setMadeInDetroit(isMadeInDetroit);
 			this.setUnionShop(isUnionShop);
 		}
 		
-		public AmericanCar(AmericanCar newAmericanCar)
+		public AmericanCar(final AmericanCar newAmericanCar)
 		{
 			super(newAmericanCar);
 			this.setMadeInDetroit(newAmericanCar.isMadeInDetroit());
 			this.setUnionShop(newAmericanCar.isUnionShop());
 		}
 		
+		@Override
 		public int hashCode()
 		{
 			/*
@@ -543,33 +506,34 @@ public class n00868808
 			return (super.hashCode() ^ this.isMadeInDetroit().hashCode() ^ this.isUnionShop().hashCode());
 		}
 		
-		public Boolean isMadeInDetroit()
+		public final Boolean isMadeInDetroit()
 		{
 			return this.isMadeInDetroit;
 		}
-
-		public Boolean isUnionShop()
+		
+		public final Boolean isUnionShop()
 		{
 			return this.isUnionShop;
 		}
 		
-		public void setAmericanCar(AmericanCar newAmericanCar)
+		protected final void setAmericanCar(final AmericanCar newAmericanCar)
 		{
 			this.setCar(newAmericanCar);
 			this.setMadeInDetroit(newAmericanCar.isMadeInDetroit());
 			this.setUnionShop(newAmericanCar.isUnionShop());
 		}
-
-		public void setMadeInDetroit(boolean isMadeInDetroit)
+		
+		protected final void setMadeInDetroit(final boolean isMadeInDetroit)
 		{
 			this.isMadeInDetroit = isMadeInDetroit;
 		}
-
-		public void setUnionShop(boolean isUnionShop)
+		
+		protected final void setUnionShop(final boolean isUnionShop)
 		{
 			this.isUnionShop = isUnionShop;
 		}
-
+		
+		@Override
 		public String toString()
 		{
 			return (super.toString() + 
@@ -585,30 +549,32 @@ public class n00868808
 		
 		public ForeignCar() {}
 		
-		public ForeignCar(String ownersName, String address, String phone, String email, boolean isConvertible, String color, String countryOfManufacture, float importDuty)
+		public ForeignCar(final String ownersName, final String address, final String phone, final String email, final boolean isConvertible,
+			final String color, final String countryOfManufacture, final float importDuty)
 		{
 			super(ownersName, address, phone, email, isConvertible, color);
 			this.setCountryOfManufacture(countryOfManufacture);
 			this.setImportDuty(importDuty);
 		}
 		
-		public ForeignCar(ForeignCar newForeignCar)
+		public ForeignCar(final ForeignCar newForeignCar)
 		{
 			super(newForeignCar);
 			this.setCountryOfManufacture(newForeignCar.getCountryOfManufacture());
 			this.setImportDuty(newForeignCar.getImportDuty());
 		}
 		
-		public String getCountryOfManufacture()
+		public final String getCountryOfManufacture()
 		{
 			return this.countryOfManufacture;
 		}
 
-		public Float getImportDuty()
+		public final Float getImportDuty()
 		{
 			return this.importDuty;
 		}
 		
+		@Override
 		public int hashCode()
 		{
 			/*
@@ -619,23 +585,24 @@ public class n00868808
 			return (super.hashCode() ^ this.getCountryOfManufacture().hashCode() ^ this.getImportDuty().hashCode());
 		}
 
-		public void setCountryOfManufacture(String countryOfManufacture)
+		protected final void setCountryOfManufacture(final String countryOfManufacture)
 		{
 			this.countryOfManufacture = countryOfManufacture;
 		}
 		
-		public void setForeignCar(ForeignCar newForeignCar)
+		protected final void setForeignCar(final ForeignCar newForeignCar)
 		{
 			this.setCar(newForeignCar);
 			this.setCountryOfManufacture(newForeignCar.getCountryOfManufacture());
 			this.setImportDuty(newForeignCar.getImportDuty());
 		}
 
-		public void setImportDuty(float importDuty)
+		protected final void setImportDuty(final float importDuty)
 		{
 			this.importDuty = importDuty;
 		}
-
+		
+		@Override
 		public String toString()
 		{
 			return (super.toString() + 
@@ -644,7 +611,35 @@ public class n00868808
 		}
 	}
 	
-	private static void displayMenu(List<Vehicle> vehicleList)
+	public final static void main(final String[] args)
+	{
+		new A4(args);
+	}
+	
+	private boolean isDebugging = false;
+	
+	public A4(final String[] args)
+	{
+		this.setDebugging(Support.promptDebugMode(null));
+		
+		List<Vehicle> vehicleList = new ArrayList<Vehicle>();
+		
+		if (args.length > 0)
+		{
+			for (int i = 0; i < args.length; i++)
+			{
+				this.openFile(args[i], vehicleList);
+			}
+		}
+		else
+		{
+			this.openFile(null, vehicleList);
+		}
+		
+		this.displayMenu(vehicleList);
+	}
+	
+	protected final void displayMenu(final List<Vehicle> vehicleList)
 	{
 		Scanner keyboard = new Scanner(System.in);
 		boolean stopMenu = false;
@@ -662,7 +657,7 @@ public class n00868808
 			
 			String input = keyboard.next();
 			
-			if (Vehicle.isStringParsedAsInteger(input))
+			if (Support.isStringParsedAsInteger(input))
 			{
 				System.out.println("");
 				int choice = Integer.parseInt(input);
@@ -672,32 +667,33 @@ public class n00868808
 
 				case 1:
 
-					printAllVehicles(vehicleList);
+					this.printAllVehicles(vehicleList);
 					break;
 
 				case 2:
 
-					sortAndPrintAllVehicles(vehicleList);
+					this.sortAndPrintAllVehicles(vehicleList);
 					break;
 
 				case 3:
 
-					printNumberOfVehicles(vehicleList);
+					this.printNumberOfVehicles(vehicleList);
 					break;
 
 				case 4:
 
-					printSortedBicyclesAndTrucks(vehicleList);
+					this.printSortedBicyclesAndTrucks(vehicleList);
 					break;
 
 				case 5:
 
-					printVehiclesInAreaCode(vehicleList, 987);
+					this.printVehiclesInAreaCode(vehicleList, 987);
 					break;
 
 				default:
 
-					handleException(new Exception("Unable to recognize the given command. Only the integers 1 through 5 are valid."));
+					Support.displayException(null, new Exception("Unable to recognize the given command. Only the integers 1 through 5 are valid."),
+						false);
 					break;
 				}
 			}
@@ -709,7 +705,7 @@ public class n00868808
 				}
 				else
 				{
-					handleException(new Exception("Unable to recognize the given input. Please enter an integer."));
+					Support.displayException(null, new Exception("Unable to recognize the given input. Please enter an integer."), false);
 				}
 			}
 		}
@@ -718,115 +714,21 @@ public class n00868808
 		keyboard.close();
 	}
 	
-	private static String getDateTimeStamp()
+	public final boolean isDebugging()
 	{
-		/*
-			This method was constructed after searching for simple custom date/time formatting.
-			Its only downside is that the Date class is deprecated, and may become unavailable
-			in the future. I am in the process of working on a better alternative.
-		*/
-		SimpleDateFormat dateFormat = new SimpleDateFormat("MM.dd.yyyy hh:mm:ss a z");
-		return dateFormat.format(new Date());
+		return this.isDebugging;
 	}
 	
-	private static String getFilePath(boolean isOpen)
+	protected final void openFile(final String filePath, final List<Vehicle> vehicleList)
 	{
-		JFileChooser fileDialog = new JFileChooser();
-		boolean      stopFlag   = false;
-		String       filePath   = null;
-		int          choice     = 0;
+		String newFilePath = filePath;
 		
-		do // Loop while stopFlag equals false, post-test.
+		if ((newFilePath == null) || newFilePath.isEmpty())
 		{
-			if (isOpen)
-			{
-				choice = fileDialog.showOpenDialog(null);
-			}
-			else
-			{
-				choice = fileDialog.showSaveDialog(null);
-			}
-			
-			switch (choice)
-			{
-			case JFileChooser.APPROVE_OPTION:
-				
-				try
-				{
-					filePath = fileDialog.getSelectedFile().getCanonicalPath();
-					stopFlag = true;
-				}
-				catch (Exception exception)
-				{
-					filePath = null;
-					stopFlag = false;
-				}
-				break;
-				
-			case JFileChooser.CANCEL_OPTION:
-				
-				filePath = null;
-				stopFlag = true;
-				break;
-				
-			default:
-				
-				filePath = null;
-				stopFlag = false;
-				break;
-			}
-		}
-		while (stopFlag == false);
-		
-		return filePath;
-	}
-	
-	private static void handleException(Exception exception)
-	{
-		/*
-			Report error message, complete with some useful debug info.
-			Source file is where the error chain ended, which could be null in the case of a function in the Java API.
-			Cause file is where the error chain began, which is the bottom of the stack and where the bad method is likely to be.
-		*/
-		JOptionPane.showMessageDialog(null,
-			exception.toString() + 
-			"\n\nSource file: " + exception.getStackTrace()[0].getFileName() +
-			"\nLine number: " + exception.getStackTrace()[0].getLineNumber() +
-			"\n\nCause file: " + exception.getStackTrace()[exception.getStackTrace().length-1].getFileName() +
-			"\nLine number: " + exception.getStackTrace()[exception.getStackTrace().length-1].getLineNumber() +
-			"\n\nWhen: " + getDateTimeStamp(),
-			"Unhandled Exception",
-			JOptionPane.ERROR_MESSAGE);
-		exception.printStackTrace();
-	}
-	
-	public static void main(String[] args)
-	{
-		List<Vehicle> vehicleList = new ArrayList<Vehicle>();
-		
-		if (args.length > 0)
-		{
-			for (int i = 0; i < args.length; i++)
-			{
-				openFile(args[i], vehicleList);
-			}
-		}
-		else
-		{
-			openFile(null, vehicleList);
+			newFilePath = Support.getFilePath(null, true, this.isDebugging());
 		}
 		
-		displayMenu(vehicleList);
-	}
-	
-	private static void openFile(String filePath, List<Vehicle> vehicleList)
-	{
-		if ((filePath == null) || filePath.isEmpty())
-		{
-			filePath = getFilePath(true);
-		}
-		
-		if ((filePath == null) || filePath.isEmpty())
+		if ((newFilePath == null) || newFilePath.isEmpty())
 		{
 			// User has canceled the file operation; abort!
 			return;
@@ -837,13 +739,13 @@ public class n00868808
 		try
 		{
 			// Initialize file stream. If the given path is invalid, an exception is thrown.
-			inputStream = new Scanner(new File(filePath));
-			parseFile(inputStream, vehicleList);
+			inputStream = new Scanner(new File(newFilePath));
+			this.parseFile(inputStream, vehicleList);
 		}
-		catch (Exception exception)
+		catch (final Exception exception)
 		{
 			// Handle the exception by alerting the user of the error.
-			handleException(exception);
+			Support.displayException(null, exception, false);
 		}
 		finally
 		{
@@ -856,11 +758,12 @@ public class n00868808
 		}
 	}
 	
-	private static void parseFile(Scanner inputStream, List<Vehicle> vehicleList)
+	protected final void parseFile(final Scanner inputStream, final List<Vehicle> vehicleList)
 	{
 		while (inputStream.hasNextLine())
 		{
-			String ownersName, address, phone, email, numberOfSpeeds, isConvertible, color, numberOfTons, costOfTruck, datePurchased, isMadeInDetroit, isUnionShop, countryOfManufacture, importDuty;
+			String ownersName, address, phone, email, numberOfSpeeds, isConvertible, color, numberOfTons, costOfTruck, datePurchased, isMadeInDetroit,
+				isUnionShop, countryOfManufacture, importDuty;
 			// Get the next line in the file.
 			String line = inputStream.nextLine();
 			
@@ -885,13 +788,13 @@ public class n00868808
 					email          = inputStream.nextLine();
 					numberOfSpeeds = inputStream.nextLine();
 					
-					if (Vehicle.isStringParsedAsInteger(numberOfSpeeds))
+					if (Support.isStringParsedAsInteger(numberOfSpeeds))
 					{
 						vehicleList.add(new Bicycle(ownersName, address, phone, email, Integer.parseInt(numberOfSpeeds)));
 					}
 					else
 					{
-						handleException(new Exception("Failure parsing file: 'numberOfSpeeds' must be an integer."));
+						Support.displayException(null, new Exception("Failure parsing file: 'numberOfSpeeds' must be an integer."), false);
 					}
 					break;
 					
@@ -904,13 +807,13 @@ public class n00868808
 					isConvertible = inputStream.nextLine();
 					color         = inputStream.nextLine();
 					
-					if (Vehicle.isStringParsedAsBoolean(isConvertible))
+					if (Support.isStringParsedAsBoolean(isConvertible))
 					{
 						vehicleList.add(new Car(ownersName, address, phone, email, Boolean.parseBoolean(isConvertible), color));
 					}
 					else
 					{
-						handleException(new Exception("Failure parsing file: 'isConvertible' must be a boolean."));
+						Support.displayException(null, new Exception("Failure parsing file: 'isConvertible' must be a boolean."), false);
 					}
 					break;
 					
@@ -924,23 +827,24 @@ public class n00868808
 					costOfTruck   = inputStream.nextLine();
 					datePurchased = inputStream.nextLine();
 					
-					if (Vehicle.isStringParsedAsFloat(numberOfTons) && Vehicle.isStringParsedAsFloat(costOfTruck))
+					if (Support.isStringParsedAsFloat(numberOfTons) && Support.isStringParsedAsFloat(costOfTruck))
 					{
-						vehicleList.add(new Truck(ownersName, address, phone, email, Float.parseFloat(numberOfTons), Float.parseFloat(costOfTruck), datePurchased));
+						vehicleList.add(new Truck(ownersName, address, phone, email, Float.parseFloat(numberOfTons), Float.parseFloat(costOfTruck),
+							datePurchased));
 					}
 					else
 					{
-						if (!Vehicle.isStringParsedAsFloat(numberOfTons))
+						if (!Support.isStringParsedAsFloat(numberOfTons))
 						{
-							handleException(new Exception("Failure parsing file: 'numberOfTons' must be a float."));
+							Support.displayException(null, new Exception("Failure parsing file: 'numberOfTons' must be a float."), false);
 						}
-						else if (!Vehicle.isStringParsedAsFloat(costOfTruck))
+						else if (!Support.isStringParsedAsFloat(costOfTruck))
 						{
-							handleException(new Exception("Failure parsing file: 'costOfTruck' must be a float."));
+							Support.displayException(null, new Exception("Failure parsing file: 'costOfTruck' must be a float."), false);
 						}
 						else
 						{
-							handleException(new Exception("Failure parsing file: unknown anomaly."));
+							Support.displayException(null, new Exception("Failure parsing file: unknown anomaly."), false);
 						}
 					}
 					break;
@@ -956,27 +860,29 @@ public class n00868808
 					isMadeInDetroit = inputStream.nextLine();
 					isUnionShop     = inputStream.nextLine();
 					
-					if ((Vehicle.isStringParsedAsBoolean(isConvertible)) && (Vehicle.isStringParsedAsBoolean(isMadeInDetroit)) && (Vehicle.isStringParsedAsBoolean(isUnionShop)))
+					if ((Support.isStringParsedAsBoolean(isConvertible)) && (Support.isStringParsedAsBoolean(isMadeInDetroit)) &&
+						(Support.isStringParsedAsBoolean(isUnionShop)))
 					{
-						vehicleList.add(new AmericanCar(ownersName, address, phone, email, Boolean.parseBoolean(isConvertible), color, Boolean.parseBoolean(isMadeInDetroit), Boolean.parseBoolean(isUnionShop)));
+						vehicleList.add(new AmericanCar(ownersName, address, phone, email, Boolean.parseBoolean(isConvertible), color,
+							Boolean.parseBoolean(isMadeInDetroit), Boolean.parseBoolean(isUnionShop)));
 					}
 					else
 					{
-						if (!Vehicle.isStringParsedAsBoolean(isConvertible))
+						if (!Support.isStringParsedAsBoolean(isConvertible))
 						{
-							handleException(new Exception("Failure parsing file: 'isConvertible' must be a boolean."));
+							Support.displayException(null, new Exception("Failure parsing file: 'isConvertible' must be a boolean."), false);
 						}
-						else if (!Vehicle.isStringParsedAsBoolean(isMadeInDetroit))
+						else if (!Support.isStringParsedAsBoolean(isMadeInDetroit))
 						{
-							handleException(new Exception("Failure parsing file: 'isMadeInDetroit' must be a boolean."));
+							Support.displayException(null, new Exception("Failure parsing file: 'isMadeInDetroit' must be a boolean."), false);
 						}
-						else if (!Vehicle.isStringParsedAsBoolean(isUnionShop))
+						else if (!Support.isStringParsedAsBoolean(isUnionShop))
 						{
-							handleException(new Exception("Failure parsing file: 'isUnionShop' must be a boolean."));
+							Support.displayException(null, new Exception("Failure parsing file: 'isUnionShop' must be a boolean."), false);
 						}
 						else
 						{
-							handleException(new Exception("Failure parsing file: unknown anomaly."));
+							Support.displayException(null, new Exception("Failure parsing file: unknown anomaly."), false);
 						}
 					}
 					break;
@@ -992,23 +898,24 @@ public class n00868808
 					countryOfManufacture = inputStream.nextLine();
 					importDuty           = inputStream.nextLine();
 					
-					if (Vehicle.isStringParsedAsFloat(importDuty) && (Vehicle.isStringParsedAsBoolean(isConvertible)))
+					if (Support.isStringParsedAsFloat(importDuty) && (Support.isStringParsedAsBoolean(isConvertible)))
 					{
-						vehicleList.add(new ForeignCar(ownersName, address, phone, email, Boolean.parseBoolean(isConvertible), color, countryOfManufacture, Float.parseFloat(importDuty)));
+						vehicleList.add(new ForeignCar(ownersName, address, phone, email, Boolean.parseBoolean(isConvertible), color,
+							countryOfManufacture, Float.parseFloat(importDuty)));
 					}
 					else
 					{
-						if (!Vehicle.isStringParsedAsFloat(importDuty))
+						if (!Support.isStringParsedAsFloat(importDuty))
 						{
-							handleException(new Exception("Failure parsing file: 'importDuty' must be a float."));
+							Support.displayException(null, new Exception("Failure parsing file: 'importDuty' must be a float."), false);
 						}
-						else if (!Vehicle.isStringParsedAsBoolean(isConvertible))
+						else if (!Support.isStringParsedAsBoolean(isConvertible))
 						{
-							handleException(new Exception("Failure parsing file: 'isConvertible' must be a boolean."));
+							Support.displayException(null, new Exception("Failure parsing file: 'isConvertible' must be a boolean."), false);
 						}
 						else
 						{
-							handleException(new Exception("Failure parsing file: unknown anomaly."));
+							Support.displayException(null, new Exception("Failure parsing file: unknown anomaly."), false);
 						}
 					}
 					break;
@@ -1017,14 +924,15 @@ public class n00868808
 					
 					if (!line.isEmpty())
 					{
-						handleException(new Exception("Failure parsing file: record type '" + line + "' is not recognized."));
+						Support.displayException(null, new Exception("Failure parsing file: record type '" + line + "' is not recognized."),
+							false);
 					}
 					break;
 			}
 		}
 	}
 	
-	private static void printAllVehicles(List<Vehicle> vehicleList)
+	protected final void printAllVehicles(final List<Vehicle> vehicleList)
 	{
 		for (int i = 0; i < vehicleList.size(); i++)
 		{
@@ -1032,24 +940,12 @@ public class n00868808
 		}
 	}
 	
-	private static void sortAndPrintAllVehicles(List<Vehicle> vehicleList)
-	{
-		List<Vehicle> sortedList = new ArrayList<Vehicle>();
-		sortedList.addAll(vehicleList);
-		Collections.sort(sortedList, new Vehicle.VehicleEmailAscendingComparator());
-		
-		for (int i = 0; i < sortedList.size(); i++)
-		{
-			System.out.println(sortedList.get(i).toString());
-		}
-	}
-	
-	private static void printNumberOfVehicles(List<Vehicle> vehicleList)
+	protected final void printNumberOfVehicles(final List<Vehicle> vehicleList)
 	{
 		System.out.println("Number of records: " + vehicleList.size() + "\n");
 	}
 	
-	private static void printSortedBicyclesAndTrucks(List<Vehicle> vehicleList)
+	protected final void printSortedBicyclesAndTrucks(final List<Vehicle> vehicleList)
 	{
 		List<Vehicle> sortedList = new ArrayList<Vehicle>();
 		sortedList.addAll(vehicleList);
@@ -1064,7 +960,7 @@ public class n00868808
 		}
 	}
 	
-	private static void printVehiclesInAreaCode(List<Vehicle> vehicleList, int areaCode)
+	protected final void printVehiclesInAreaCode(final List<Vehicle> vehicleList, final int areaCode)
 	{
 		for (int i = 0; i < vehicleList.size(); i++)
 		{
@@ -1072,6 +968,23 @@ public class n00868808
 			{
 				System.out.println(vehicleList.get(i).toString());
 			}
+		}
+	}
+	
+	protected final void setDebugging(final boolean isDebugging)
+	{
+		this.isDebugging = isDebugging;
+	}
+	
+	protected final void sortAndPrintAllVehicles(final List<Vehicle> vehicleList)
+	{
+		List<Vehicle> sortedList = new ArrayList<Vehicle>();
+		sortedList.addAll(vehicleList);
+		Collections.sort(sortedList, new Vehicle.VehicleEmailAscendingComparator());
+		
+		for (int i = 0; i < sortedList.size(); i++)
+		{
+			System.out.println(sortedList.get(i).toString());
 		}
 	}
 }
