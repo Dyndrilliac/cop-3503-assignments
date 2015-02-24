@@ -70,8 +70,8 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.KeyStroke;
 
-import api.gui.ApplicationWindow;
-import api.gui.RichTextPane;
+import api.gui.swing.ApplicationWindow;
+import api.gui.swing.RichTextPane;
 import api.util.EventHandler;
 import api.util.Support;
 

@@ -16,6 +16,8 @@ import java.util.List;
 import java.util.Scanner;
 
 import api.util.Support;
+import api.util.stdlib.StdIn;
+import api.util.stdlib.StdOut;
 
 public class A4
 {
@@ -35,8 +37,9 @@ public class A4
 			this.setUnionShop(newAmericanCar.isUnionShop());
 		}
 
-		public AmericanCar(final String ownersName, final String address, final String phone, final String email,
-			final boolean isConvertible, final String color, final boolean isMadeInDetroit, final boolean isUnionShop)
+		public AmericanCar(final String ownersName, final String address, final String phone,
+			final String email, final boolean isConvertible, final String color,
+			final boolean isMadeInDetroit, final boolean isUnionShop)
 		{
 			super(ownersName, address, phone, email, isConvertible, color);
 			this.setMadeInDetroit(isMadeInDetroit);
@@ -104,7 +107,8 @@ public class A4
 			this.setNumberOfSpeeds(newBicycle.getNumberOfSpeeds());
 		}
 
-		public Bicycle(final String ownersName, final String address, final String phone, final String email, final int numberOfSpeeds)
+		public Bicycle(final String ownersName, final String address, final String phone,
+			final String email, final int numberOfSpeeds)
 		{
 			super(ownersName, address, phone, email);
 			this.setNumberOfSpeeds(numberOfSpeeds);
@@ -161,8 +165,8 @@ public class A4
 			this.setColor(newCar.getColor());
 		}
 
-		public Car(final String ownersName, final String address, final String phone, final String email, final boolean isConvertible,
-			final String color)
+		public Car(final String ownersName, final String address, final String phone,
+			final String email, final boolean isConvertible, final String color)
 		{
 			super(ownersName, address, phone, email);
 			this.setConvertible(isConvertible);
@@ -232,8 +236,9 @@ public class A4
 			this.setImportDuty(newForeignCar.getImportDuty());
 		}
 
-		public ForeignCar(final String ownersName, final String address, final String phone, final String email, final boolean isConvertible,
-			final String color, final String countryOfManufacture, final float importDuty)
+		public ForeignCar(final String ownersName, final String address, final String phone,
+			final String email, final boolean isConvertible, final String color,
+			final String countryOfManufacture, final float importDuty)
 		{
 			super(ownersName, address, phone, email, isConvertible, color);
 			this.setCountryOfManufacture(countryOfManufacture);
@@ -309,13 +314,17 @@ public class A4
 
 				if (intArray[0] < 1)
 				{
-					Support.displayException(null, new Exception("Month value must exceed the lower bound of 1."), false);
+					Support.displayException(null,
+						new Exception("Month value must exceed the lower bound of 1."),
+						false);
 					return false;
 				}
 
 				if (intArray[0] > 12)
 				{
-					Support.displayException(null, new Exception("Month value must not exceed the upper bound of 12."), false);
+					Support.displayException(null,
+						new Exception("Month value must not exceed the upper bound of 12."),
+						false);
 					return false;
 				}
 
@@ -345,19 +354,25 @@ public class A4
 
 				if (intArray[1] < dayLowerBound)
 				{
-					Support.displayException(null, new Exception("Day value must exceed the lower bound of " + dayLowerBound + "."), false);
+					Support.displayException(null,
+						new Exception("Day value must exceed the lower bound of " + dayLowerBound + "."),
+						false);
 					return false;
 				}
 
 				if (intArray[1] > dayUpperBound)
 				{
-					Support.displayException(null, new Exception("Day value must not exceed the upper bound of " + dayUpperBound + "."), false);
+					Support.displayException(null,
+						new Exception("Day value must not exceed the upper bound of " + dayUpperBound + "."),
+						false);
 					return false;
 				}
 
 				if (intArray[2] < 0)
 				{
-					Support.displayException(null, new Exception("Year value must be greater than or equal to 0."), false);
+					Support.displayException(null,
+						new Exception("Year value must be greater than or equal to 0."),
+						false);
 					return false;
 				}
 
@@ -375,8 +390,8 @@ public class A4
 		{
 		}
 
-		public Truck(final String ownersName, final String address, final String phone, final String email, final float numberOfTons,
-			final float costOfTruck, final String datePurchased)
+		public Truck(final String ownersName, final String address, final String phone, final String email,
+			final float numberOfTons, final float costOfTruck, final String datePurchased)
 		{
 			super(ownersName, address, phone, email);
 			this.setNumberOfTons(numberOfTons);
@@ -415,7 +430,8 @@ public class A4
 			 * Each property's individual hash code is joined by the XOR operator, which will generate a new hash code that will change even if
 			 * only a single bit changes in any of its component parts.
 			 */
-			return (super.hashCode() ^ this.getNumberOfTons().hashCode() ^ this.getCostOfTruck().hashCode() ^ this.getDatePurchased().hashCode());
+			return (super.hashCode() ^ this.getNumberOfTons().hashCode() ^
+				this.getCostOfTruck().hashCode() ^ this.getDatePurchased().hashCode());
 		}
 
 		protected final void setCostOfTruck(final float costOfTruck)
@@ -431,7 +447,9 @@ public class A4
 			}
 			else
 			{
-				Support.displayException(null, new Exception("The given date is invalid. The object has not been changed."), false);
+				Support.displayException(null,
+					new Exception("The given date is invalid. The object has not been changed."),
+					false);
 			}
 		}
 
@@ -526,25 +544,28 @@ public class A4
 				return false;
 			}
 
-			if (this == obj) // If 'obj' is located at the same memory address as 'this', then 'obj' is 'this', and thus they are equal so return true.
-			{
+			if (this == obj) // If 'obj' is located at the same memory address as 'this',
+			{				 // then 'obj' is 'this', and thus they are equal so return true.
 				return true;
 			}
 
 			// Check to see if 'this' is an object of the same class as 'obj'.
 			if (this.getClass() != obj.getClass())
 			{
-				// If 'this' is not an object of the same class as 'obj', check to see if the two classes are assignment compatible.
+				// If 'this' is not an object of the same class as 'obj',
+				// check to see if the two classes are assignment compatible.
 				if (this.getClass().isInstance(obj))
 				{
-					// If the two classes are assignment compatible, use the hashCode methods to determine equality.
+					// If the two classes are assignment compatible,
+					// use the hashCode methods to determine equality.
 					if (this.hashCode() == obj.hashCode())
 					{
 						return true;
 					}
 				}
 			}
-			// If 'this' is an object of the same class as 'obj', use the hashCode methods to determine equality.
+			// If 'this' is an object of the same class as 'obj',
+			// use the hashCode methods to determine equality.
 			else
 			{
 				if (this.hashCode() == obj.hashCode())
@@ -553,7 +574,8 @@ public class A4
 				}
 			}
 
-			// If the two classes are not the same or assignment compatible, return false. If hashCode method comparisons are false, return false.
+			// If the two classes are not the same or assignment compatible, return false.
+			// If hashCode method comparisons are false, return false.
 			return false;
 		}
 
@@ -581,11 +603,13 @@ public class A4
 		public int hashCode()
 		{
 			/*
-			 * The hashCode method is a way to reduce all of an object's properties down to a single integer to assist in equality comparisons.
-			 * Each property's individual hash code is joined by the XOR operator, which will generate a new hash code that will change even if
-			 * only a single bit changes in any of its component parts.
+			 * The hashCode method is a way to reduce all of an object's properties down to a single integer
+			 * to assist in equality comparisons. Each property's individual hash code is joined by the XOR
+			 * operator, which will generate a new hash code that will change even if only a single bit changes
+			 * in any of its component parts.
 			 */
-			return (this.getOwnersName().hashCode() ^ this.getAddress().hashCode() ^ this.getPhone().hashCode() ^ this.getEmail().hashCode());
+			return (this.getOwnersName().hashCode() ^ this.getAddress().hashCode() ^
+				this.getPhone().hashCode() ^ this.getEmail().hashCode());
 		}
 
 		protected final void setAddress(final String address)
@@ -662,20 +686,20 @@ public class A4
 
 		do
 		{
-			System.out.println("Welcome! Please choose an option from the menu below.\n");
-			System.out.println("\t[1]: Print all of the vehicles.");
-			System.out.println("\t[2]: Sort all of the vehicles by email addresses and print them.");
-			System.out.println("\t[3]: Print the number of vehicles.");
-			System.out.println("\t[4]: Sort the vehicles and print only the bicycles and trucks.");
-			System.out.println("\t[5]: Print only the vehicles in area code 987.\n");
-			System.out.println("*Note: You may enter the word \"stop\" (not case-sensitive) at any time to end the program.\n");
-			System.out.print("Input: ");
+			StdOut.println("Welcome! Please choose an option from the menu below.\n");
+			StdOut.println("\t[1]: Print all of the vehicles.");
+			StdOut.println("\t[2]: Sort all of the vehicles by email addresses and print them.");
+			StdOut.println("\t[3]: Print the number of vehicles.");
+			StdOut.println("\t[4]: Sort the vehicles and print only the bicycles and trucks.");
+			StdOut.println("\t[5]: Print only the vehicles in area code 987.\n");
+			StdOut.println("*Note: You may enter the word \"stop\" (not case-sensitive) at any time to end the program.\n");
+			StdOut.print("Input: ");
 
-			String input = keyboard.next();
+			String input = StdIn.readString();
 
 			if (Support.isStringParsedAsInteger(input))
 			{
-				System.out.println("");
+				StdOut.println("");
 				int choice = Integer.parseInt(input);
 
 				switch (choice)
@@ -708,7 +732,8 @@ public class A4
 
 					default:
 
-						Support.displayException(null, new Exception("Unable to recognize the given command. Only the integers 1 through 5 are valid."),
+						Support.displayException(null,
+							new Exception("Unable to recognize the given command. Only the integers 1 through 5 are valid."),
 							false);
 						break;
 				}
@@ -721,7 +746,8 @@ public class A4
 				}
 				else
 				{
-					Support.displayException(null, new Exception("Unable to recognize the given input. Please enter an integer."), false);
+					Support.displayException(null,
+						new Exception("Unable to recognize the given input. Please enter an integer."), false);
 				}
 			}
 		}
@@ -981,13 +1007,13 @@ public class A4
 	{
 		for (int i = 0; i < vehicleList.size(); i++)
 		{
-			System.out.println(vehicleList.get(i).toString());
+			StdOut.println(vehicleList.get(i).toString());
 		}
 	}
 
 	protected final void printNumberOfVehicles(final List<Vehicle> vehicleList)
 	{
-		System.out.println("Number of records: " + vehicleList.size() + "\n");
+		StdOut.println("Number of records: " + vehicleList.size() + "\n");
 	}
 
 	protected final void printSortedBicyclesAndTrucks(final List<Vehicle> vehicleList)
@@ -1000,7 +1026,7 @@ public class A4
 		{
 			if ((vehicleList.get(i) instanceof Bicycle) || (vehicleList.get(i) instanceof Truck))
 			{
-				System.out.println(vehicleList.get(i).toString());
+				StdOut.println(vehicleList.get(i).toString());
 			}
 		}
 	}
@@ -1011,7 +1037,7 @@ public class A4
 		{
 			if (vehicleList.get(i).getPhone().contains("(" + areaCode + ")"))
 			{
-				System.out.println(vehicleList.get(i).toString());
+				StdOut.println(vehicleList.get(i).toString());
 			}
 		}
 	}
@@ -1029,7 +1055,7 @@ public class A4
 
 		for (int i = 0; i < sortedList.size(); i++)
 		{
-			System.out.println(sortedList.get(i).toString());
+			StdOut.println(sortedList.get(i).toString());
 		}
 	}
 }
