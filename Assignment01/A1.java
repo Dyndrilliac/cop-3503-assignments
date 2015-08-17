@@ -34,26 +34,26 @@ public class A1
 	{
 		new A1(args);
 	}
-
+	
 	boolean				isDebugging	= false;
 	RichTextPane		output		= null;
 	ApplicationWindow	window		= null;
-
+	
 	public A1(final String[] args)
 	{
 		this.setDebugging(Support.promptDebugMode(this.getWindow()));
-
+		
 		// Define a self-contained ActionListener event handler.
 		EventHandler<A1> myActionPerformed = new EventHandler<A1>(this)
-			{
+		{
 			private final static long	serialVersionUID	= 1L;
-
+			
 			@Override
 			public final void run(final AWTEvent event)
 			{
 				ActionEvent actionEvent = (ActionEvent)event;
 				A1 parent = this.getParent();
-
+				
 				if (parent.getOutput() != null)
 				{
 					/*
@@ -64,121 +64,121 @@ public class A1
 					switch (actionEvent.getActionCommand())
 					{
 						case "Clear":
-
+							
 							parent.getOutput().clear();
 							break;
-
+						
 						case "Open":
-
+							
 							parent.getOutput().openOrSaveFile(true);
 							break;
-
+						
 						case "Save":
-
+							
 							parent.getOutput().openOrSaveFile(false);
 							break;
-
+						
 						case "Input":
-
+							
 							parent.showInput();
 							break;
 					}
 				}
 			}
-			};
-
-			// Define a self-contained interface construction event handler.
-			EventHandler<A1> myDrawGUI = new EventHandler<A1>(this)
-				{
-				private final static long	serialVersionUID	= 1L;
-
-				@Override
-				public final void run(final ApplicationWindow window)
-				{
-					A1 parent = this.getParent();
-					Container contentPane = window.getContentPane();
-					JMenuBar menuBar = new JMenuBar();
-					JMenu fileMenu = new JMenu("File");
-					JMenuItem clearOption = new JMenuItem("Clear");
-					JMenuItem openOption = new JMenuItem("Open");
-					JMenuItem saveOption = new JMenuItem("Save");
-					RichTextPane outputBox = new RichTextPane(window, true, parent.isDebugging());
-					JScrollPane outputPanel = new JScrollPane(outputBox);
-					JPanel inputPanel = new JPanel();
-					JButton btnInput = new JButton("Input");
-
-					contentPane.setLayout(new BorderLayout());
-					clearOption.setFont(Support.DEFAULT_TEXT_FONT);
-					clearOption.setAccelerator(KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.Event.CTRL_MASK));
-					clearOption.setMnemonic('C');
-					clearOption.addActionListener(window);
-					openOption.setFont(Support.DEFAULT_TEXT_FONT);
-					openOption.setAccelerator(KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.Event.CTRL_MASK));
-					openOption.setMnemonic('O');
-					openOption.addActionListener(window);
-					saveOption.setFont(Support.DEFAULT_TEXT_FONT);
-					saveOption.setAccelerator(KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.Event.CTRL_MASK));
-					saveOption.setMnemonic('S');
-					saveOption.addActionListener(window);
-					fileMenu.setFont(Support.DEFAULT_TEXT_FONT);
-					fileMenu.setMnemonic('F');
-					fileMenu.add(clearOption);
-					fileMenu.add(openOption);
-					fileMenu.add(saveOption);
-					menuBar.setFont(Support.DEFAULT_TEXT_FONT);
-					menuBar.add(fileMenu);
-					window.setJMenuBar(menuBar);
-					parent.setOutput(outputBox);
-					inputPanel.setLayout(new FlowLayout());
-					btnInput.addActionListener(window);
-					inputPanel.add(btnInput);
-					contentPane.add(outputPanel, BorderLayout.CENTER);
-					contentPane.add(inputPanel, BorderLayout.SOUTH);
-				}
-				};
-
-				this.setWindow(new ApplicationWindow(null, "Payroll Application", new Dimension(800, 600), this.isDebugging(),
-					true, myActionPerformed, myDrawGUI));
+		};
+		
+		// Define a self-contained interface construction event handler.
+		EventHandler<A1> myDrawGUI = new EventHandler<A1>(this)
+		{
+			private final static long	serialVersionUID	= 1L;
+			
+			@Override
+			public final void run(final ApplicationWindow window)
+			{
+				A1 parent = this.getParent();
+				Container contentPane = window.getContentPane();
+				JMenuBar menuBar = new JMenuBar();
+				JMenu fileMenu = new JMenu("File");
+				JMenuItem clearOption = new JMenuItem("Clear");
+				JMenuItem openOption = new JMenuItem("Open");
+				JMenuItem saveOption = new JMenuItem("Save");
+				RichTextPane outputBox = new RichTextPane(window, true, parent.isDebugging());
+				JScrollPane outputPanel = new JScrollPane(outputBox);
+				JPanel inputPanel = new JPanel();
+				JButton btnInput = new JButton("Input");
+				
+				contentPane.setLayout(new BorderLayout());
+				clearOption.setFont(Support.DEFAULT_TEXT_FONT);
+				clearOption.setAccelerator(KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.Event.CTRL_MASK));
+				clearOption.setMnemonic('C');
+				clearOption.addActionListener(window);
+				openOption.setFont(Support.DEFAULT_TEXT_FONT);
+				openOption.setAccelerator(KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.Event.CTRL_MASK));
+				openOption.setMnemonic('O');
+				openOption.addActionListener(window);
+				saveOption.setFont(Support.DEFAULT_TEXT_FONT);
+				saveOption.setAccelerator(KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.Event.CTRL_MASK));
+				saveOption.setMnemonic('S');
+				saveOption.addActionListener(window);
+				fileMenu.setFont(Support.DEFAULT_TEXT_FONT);
+				fileMenu.setMnemonic('F');
+				fileMenu.add(clearOption);
+				fileMenu.add(openOption);
+				fileMenu.add(saveOption);
+				menuBar.setFont(Support.DEFAULT_TEXT_FONT);
+				menuBar.add(fileMenu);
+				window.setJMenuBar(menuBar);
+				parent.setOutput(outputBox);
+				inputPanel.setLayout(new FlowLayout());
+				btnInput.addActionListener(window);
+				inputPanel.add(btnInput);
+				contentPane.add(outputPanel, BorderLayout.CENTER);
+				contentPane.add(inputPanel, BorderLayout.SOUTH);
+			}
+		};
+		
+		this.setWindow(new ApplicationWindow(null, "Payroll Application", new Dimension(800, 600), this.isDebugging(),
+			true, myActionPerformed, myDrawGUI));
 	}
-
+	
 	public final RichTextPane getOutput()
 	{
 		return this.output;
 	}
-
+	
 	public final ApplicationWindow getWindow()
 	{
 		return this.window;
 	}
-
+	
 	public final boolean isDebugging()
 	{
 		return this.isDebugging;
 	}
-
+	
 	protected final void setDebugging(final boolean debugMode)
 	{
 		this.isDebugging = debugMode;
 	}
-
+	
 	protected final void setOutput(final RichTextPane output)
 	{
 		this.output = output;
 	}
-
+	
 	protected final void setWindow(final ApplicationWindow window)
 	{
 		this.window = window;
 	}
-
+	
 	public void showInput()
 	{
 		String employeeName = Support.getInputString(this.getWindow(),
 			"Please enter this employee's name:",
 			"Input Employee Name");
-
+		
 		double hoursWorked = 0, payRate = 0, fedTaxRate = 0, stateTaxRate = 0;
-
+		
 		do
 		{
 			hoursWorked = Support.getDoubleInputString(this.getWindow(),
@@ -186,7 +186,7 @@ public class A1
 				"Input Hours Worked");
 		}
 		while (hoursWorked == 0);
-
+		
 		do
 		{
 			payRate = Support.getDoubleInputString(this.getWindow(),
@@ -194,7 +194,7 @@ public class A1
 				"Input Pay Rate");
 		}
 		while (payRate == 0);
-
+		
 		do
 		{
 			fedTaxRate = Support.getDoubleInputString(this.getWindow(),
@@ -202,7 +202,7 @@ public class A1
 				"Input Federal Tax Rate");
 		}
 		while (fedTaxRate == 0);
-
+		
 		do
 		{
 			stateTaxRate = Support.getDoubleInputString(this.getWindow(),
@@ -210,10 +210,10 @@ public class A1
 				"Input State Tax Rate");
 		}
 		while (stateTaxRate == 0);
-
+		
 		this.showOutput(employeeName, hoursWorked, payRate, fedTaxRate, stateTaxRate);
 	}
-
+	
 	protected void showOutput(final String employeeName, final double hoursWorked, final double payRate, final double fedTaxRate,
 		final double stateTaxRate)
 	{
@@ -221,7 +221,7 @@ public class A1
 		double grossPay = payRate * hoursWorked;
 		double totalDeduction = (fedTaxRate * grossPay) + (stateTaxRate * grossPay);
 		double netPay = grossPay - totalDeduction;
-
+		
 		this.getOutput().append(Color.BLACK, Color.WHITE, "Employee Name:  " + employeeName + "\n",
 			Color.BLACK, Color.WHITE, "Hours Worked:  " + Double.valueOf(twoDecimalPlaces.format(hoursWorked)) + "\n",
 			Color.BLACK, Color.WHITE, "Pay Rate:  $" + Double.valueOf(twoDecimalPlaces.format(payRate)) + "\n",
@@ -229,9 +229,9 @@ public class A1
 			Color.RED, Color.WHITE, "Deductions:\n",
 			Color.RED, Color.WHITE, "\tFederal Withholding (" + Double.valueOf(twoDecimalPlaces.format((fedTaxRate * 100))) + "%):  $" +
 				Double.valueOf(twoDecimalPlaces.format((fedTaxRate * grossPay))) + "\n",
-				Color.RED, Color.WHITE, "\tState Withholding (" + Double.valueOf(twoDecimalPlaces.format((stateTaxRate * 100))) + "%):  $" +
-					Double.valueOf(twoDecimalPlaces.format((stateTaxRate * grossPay))) + "\n",
-					Color.RED, Color.WHITE, "\tTotal Deduction:  $" + Double.valueOf(twoDecimalPlaces.format(totalDeduction)) + "\n",
-					Color.BLACK, Color.WHITE, "Net Pay:  $" + Double.valueOf(twoDecimalPlaces.format(netPay)) + "\n\n");
+			Color.RED, Color.WHITE, "\tState Withholding (" + Double.valueOf(twoDecimalPlaces.format((stateTaxRate * 100))) + "%):  $" +
+				Double.valueOf(twoDecimalPlaces.format((stateTaxRate * grossPay))) + "\n",
+			Color.RED, Color.WHITE, "\tTotal Deduction:  $" + Double.valueOf(twoDecimalPlaces.format(totalDeduction)) + "\n",
+			Color.BLACK, Color.WHITE, "Net Pay:  $" + Double.valueOf(twoDecimalPlaces.format(netPay)) + "\n\n");
 	}
 }

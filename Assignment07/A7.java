@@ -25,24 +25,24 @@ public class A7
 	{
 		new A7(args);
 	}
-
+	
 	private boolean				isDebugging	= false;
 	private ApplicationWindow	window		= null;
-
+	
 	public A7(final String[] args)
 	{
 		this.setDebugging(Support.promptDebugMode(this.getWindow()));
-
+		
 		// Define a self-contained interface construction event handler.
 		EventHandler<A7> myDrawGUI = new EventHandler<A7>(this)
-			{
+		{
 			private final static long	serialVersionUID	= 1L;
-
+			
 			@Override
 			public final void run(final ApplicationWindow window)
 			{
 				Container contentPane = window.getContentPane();
-
+				
 				JPanel carsPane = new JPanel();
 				JPanel car1Pane = new JPanel();
 				JPanel car2Pane = new JPanel();
@@ -53,7 +53,7 @@ public class A7
 				Car car2 = new Car(window);
 				CarGUI gui1 = new CarGUI(car1);
 				CarGUI gui2 = new CarGUI(car2);
-
+				
 				carsPane.setLayout(new BorderLayout());
 				car1Pane.setLayout(new FlowLayout());
 				car2Pane.setLayout(new FlowLayout());
@@ -72,27 +72,27 @@ public class A7
 				gui1Pane.add(gui1);
 				gui2Pane.add(gui2);
 			}
-			};
-
-			this.setWindow(new ApplicationWindow(null, "Animated Car Application", new Dimension(800, 600), this.isDebugging(), true, null,
-				myDrawGUI));
+		};
+		
+		this.setWindow(new ApplicationWindow(null, "Animated Car Application", new Dimension(800, 600), this.isDebugging(), true, null,
+			myDrawGUI));
 	}
-
+	
 	public final ApplicationWindow getWindow()
 	{
 		return this.window;
 	}
-
+	
 	public final boolean isDebugging()
 	{
 		return this.isDebugging;
 	}
-
+	
 	protected final void setDebugging(final boolean debugMode)
 	{
 		this.isDebugging = debugMode;
 	}
-
+	
 	protected final void setWindow(final ApplicationWindow window)
 	{
 		this.window = window;
