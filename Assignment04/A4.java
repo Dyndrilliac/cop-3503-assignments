@@ -26,9 +26,7 @@ public class A4
 		private boolean	isMadeInDetroit	= false;
 		private boolean	isUnionShop		= false;
 		
-		public AmericanCar()
-		{
-		}
+		public AmericanCar() {}
 		
 		public AmericanCar(final AmericanCar newAmericanCar)
 		{
@@ -97,9 +95,7 @@ public class A4
 	{
 		private int	numberOfSpeeds	= 0;
 		
-		public Bicycle()
-		{
-		}
+		public Bicycle() {}
 		
 		public Bicycle(final Bicycle newBicycle)
 		{
@@ -154,9 +150,7 @@ public class A4
 		private String	color			= "";
 		private boolean	isConvertible	= false;
 		
-		public Car()
-		{
-		}
+		public Car() {}
 		
 		public Car(final Car newCar)
 		{
@@ -225,9 +219,7 @@ public class A4
 		private String	countryOfManufacture	= "";
 		private float	importDuty				= 0.0f;
 		
-		public ForeignCar()
-		{
-		}
+		public ForeignCar() {}
 		
 		public ForeignCar(final ForeignCar newForeignCar)
 		{
@@ -386,9 +378,7 @@ public class A4
 		private String	datePurchased	= "1/1/1970";
 		private float	numberOfTons	= 0.0f;
 		
-		public Truck()
-		{
-		}
+		public Truck() {}
 		
 		public Truck(final String ownersName, final String address, final String phone, final String email,
 			final float numberOfTons, final float costOfTruck, final String datePurchased)
@@ -519,9 +509,7 @@ public class A4
 		private String	ownersName	= "";
 		private String	phone		= "";
 		
-		public Vehicle()
-		{
-		}
+		public Vehicle() {}
 		
 		public Vehicle(final String ownersName, final String address, final String phone, final String email)
 		{

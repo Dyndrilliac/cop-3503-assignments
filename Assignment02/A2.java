@@ -22,13 +22,13 @@
  * // Get the left-to-right sum.
  * for (int x = 1; x <= problemArg; x++)
  * {
- * ltrSum += (1/((double)x));
+ * 		ltrSum += (1/((double)x));
  * }
  * 
  * // Get the right-to-left sum.
  * for (int j = problemArg; j >= 1; j--)
  * {
- * rtlSum += (1/((double)j));
+ * 		rtlSum += (1/((double)j));
  * }
  */
 
@@ -46,9 +46,9 @@
  * 
  * for (int i = 1; i <= (problemArg+1); i++)
  * {
- * double numerator = Math.pow(-1.0, (double)(i+1)); // numerator = ((-1)^(i+1))
- * double denominator = ((2.0 * (double)i) - 1.0); // denominator = ((2i)-1)
- * sum += (numerator / denominator);
+ * 		double numerator = Math.pow(-1.0, (double)(i+1)); // numerator = ((-1)^(i+1))
+ * 		double denominator = ((2.0 * (double)i) - 1.0); // denominator = ((2i)-1)
+ * 		sum += (numerator / denominator);
  * }
  */
 
@@ -133,7 +133,7 @@ public class A2
 		for (int i = 1; i <= (problemArg + 1); i++)
 		{
 			double numerator = Math.pow(-1.0, i + 1); // numerator = ((-1)^(i+1))
-			double denominator = ((2.0 * i) - 1.0);     // denominator = ((2i)-1)
+			double denominator = ((2.0 * i) - 1.0);   // denominator = ((2i)-1)
 			sum += (numerator / denominator);
 			
 			if (rtpOutput.isDebugging())
@@ -300,18 +300,12 @@ public class A2
 			// Take input from the user. Repeat this process until the user gives valid data.
 			do
 			{
-				inputString =
-					Support
-						.getInputString(
-							this.getWindow(),
-								"Note: Commands that generate output must be entered as \"number1 number2\" where number1 is the problem number you wish to solve (23 or 25), and\n"
-									+
-									"number2 is the parameter for that problem. You may enter the word \"stop\" at any time to halt program input. The stop command is not case sensitive.\n\n"
-										+
-										"Example #1: 23 5000\nExample #2: 25 10000\nExample #3: stop\n\n"
-										+
-										"Please enter the desired command:",
-								"Input Command");
+				inputString = Support.getInputString(this.getWindow(),
+					"Note: Commands that generate output must be entered as \"number1 number2\" where number1 is the problem number you wish to solve (23 or 25), and\n" +
+					"number2 is the parameter for that problem. You may enter the word \"stop\" at any time to halt program input. The stop command is not case sensitive.\n\n" +
+					"Example #1: 23 5000\nExample #2: 25 10000\nExample #3: stop\n\n" +
+					"Please enter the desired command:",
+					"Input Command");
 			}
 			while (this.validateInput(inputString) == false);
 			

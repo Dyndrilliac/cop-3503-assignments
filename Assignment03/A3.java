@@ -36,9 +36,7 @@ public class A3
 		private double	height	= 2.0;
 		private double	width	= 1.0;
 		
-		public Rectangle()
-		{
-		}
+		public Rectangle() {}
 		
 		public Rectangle(final double height, final double width)
 		{
