@@ -301,11 +301,13 @@ public class A2
 			do
 			{
 				inputString = Support.getInputString(this.getWindow(),
-					"Note: Commands that generate output must be entered as \"number1 number2\" where number1 is the problem number you wish to solve (23 or 25), and\n" +
-					"number2 is the parameter for that problem. You may enter the word \"stop\" at any time to halt program input. The stop command is not case sensitive.\n\n" +
-					"Example #1: 23 5000\nExample #2: 25 10000\nExample #3: stop\n\n" +
-					"Please enter the desired command:",
-					"Input Command");
+								"Note: Commands that generate output must be entered as \"number1 number2\" " + 
+								"where number1 is the problem number you wish to solve (23 or 25), and\n" + 
+								"number2 is the parameter for that problem. You may enter the word \"stop\" " + 
+								"at any time to halt program input. The stop command is not case sensitive.\n\n" +
+								"Example #1: 23 5000\nExample #2: 25 10000\nExample #3: stop\n\n" +
+								"Please enter the desired command:",
+								"Input Command");
 			}
 			while (this.validateInput(inputString) == false);
 			

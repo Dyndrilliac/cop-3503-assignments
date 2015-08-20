@@ -233,8 +233,8 @@ public class A3
 			}
 		};
 		
-		this.setWindow(new ApplicationWindow(null, "Rectangle Application", new Dimension(800, 600), this.isDebugging(),
-			true, myActionPerformed, myDrawGUI));
+		this.setWindow(new ApplicationWindow(null, "Rectangle Application", new Dimension(800, 600), this.isDebugging(), true, 
+			myActionPerformed, myDrawGUI));
 	}
 	
 	public final JComboBox<String> getInputHeight()
@@ -332,7 +332,7 @@ public class A3
 				// If either the height or the width field is empty, then inform the user that both fields are required.
 				Support.displayException(this.getWindow(),
 					new Exception("Data Entry Exception: One of the data entry fields (height or width) has been left blank.\n" +
-						"Both fields are required to have numerical data."),
+					"Both fields are required to have numerical data."),
 					false);
 			}
 	}

@@ -74,8 +74,8 @@ public class A7
 			}
 		};
 		
-		this.setWindow(new ApplicationWindow(null, "Animated Car Application", new Dimension(800, 600), this.isDebugging(), true, null,
-			myDrawGUI));
+		this.setWindow(new ApplicationWindow(null, "Animated Car Application", new Dimension(800, 600), this.isDebugging(), 
+			true, null, myDrawGUI));
 	}
 	
 	public final ApplicationWindow getWindow()
