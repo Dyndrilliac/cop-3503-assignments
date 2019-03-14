@@ -14,10 +14,9 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
-
 import api.util.Support;
-import api.util.stdlib.StdIn;
-import api.util.stdlib.StdOut;
+import edu.princeton.cs.introcs.StdIn;
+import edu.princeton.cs.introcs.StdOut;
 
 public class A4
 {

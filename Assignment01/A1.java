@@ -109,15 +109,15 @@ public class A1
                 
                 contentPane.setLayout(new BorderLayout());
                 clearOption.setFont(Support.DEFAULT_TEXT_FONT);
-                clearOption.setAccelerator(KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.Event.CTRL_MASK));
+                clearOption.setAccelerator(KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.KeyEvent.CTRL_DOWN_MASK));
                 clearOption.setMnemonic('C');
                 clearOption.addActionListener(window);
                 openOption.setFont(Support.DEFAULT_TEXT_FONT);
-                openOption.setAccelerator(KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.Event.CTRL_MASK));
+                openOption.setAccelerator(KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.KeyEvent.CTRL_DOWN_MASK));
                 openOption.setMnemonic('O');
                 openOption.addActionListener(window);
                 saveOption.setFont(Support.DEFAULT_TEXT_FONT);
-                saveOption.setAccelerator(KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.Event.CTRL_MASK));
+                saveOption.setAccelerator(KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.KeyEvent.CTRL_DOWN_MASK));
                 saveOption.setMnemonic('S');
                 saveOption.addActionListener(window);
                 fileMenu.setFont(Support.DEFAULT_TEXT_FONT);
